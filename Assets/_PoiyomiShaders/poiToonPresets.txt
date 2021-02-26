@@ -1,0 +1,16 @@
+test
+_MainTex = Assets/Materials/Textures/Buildings_Building_3_AlbedoTransparency.png
+_BumpMap = Assets/Materials/Textures/Buildings_Building_3_Normal.png
+_BumpScale = 0.61
+_LightingMonochromatic = 1
+_ToonRamp = Assets/textures/Gradients/gradient_381179376.png
+_ShadowStrength = 0.907
+_Smoothness = 0.5
+_EnableSpecular = 1
+_SpecularType = 2
+_SpecularNormal = 0
+_SpecularToonInnerOuter = 0,0.05316925,0,1
+_LineWidth = 1
+_LineColor = 0,0,0,1
+_EmissionColor = 0,0,0,1
+
