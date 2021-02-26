@@ -15,6 +15,7 @@ public class HumanPlayer : Player
     Action endTurn;
     public override void StartTurn(Action endTurn)
     {
+        ShowInterface();
         this.endTurn = endTurn;
     }
 

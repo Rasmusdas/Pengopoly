@@ -8,6 +8,7 @@ public class Board : MonoBehaviour
     public Space[] board;
     public Player currentPlayer;
     public Player[] players;
+    public int currentPlayerIndex = 0;
 
     public int Size { 
         get
@@ -31,11 +32,23 @@ public class Board : MonoBehaviour
         {
             board[i] = spaces.transform.GetChild(i).GetComponent<Space>();
         }
-        currentPlayer.StartTurn(() => { Debug.Log("TURN ENDED"); });
+        StartCoroutine(NextTurn());
+        
     }
 
-    void Update()
+    IEnumerator NextTurn()
     {
-       
+        bool nextTurn = true;
+        while(true)
+        {
+            if(nextTurn)
+            {
+                nextTurn = false;
+                currentPlayer.StartTurn(() => { currentPlayerIndex = (currentPlayerIndex + 1) % players.Length; nextTurn = true; currentPlayer = players[currentPlayerIndex]; });
+            }
+
+            yield return new WaitForSeconds(0.1f);
+        }
+        
     }
 }

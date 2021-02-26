@@ -11,19 +11,23 @@ public class PlayerInterface : MonoBehaviour
     public HumanPlayer player;
 
     public Text rollDice;
+    public GameObject rollDiceButton;
 
     public void ShowInterface()
     {
-
+        gameObject.SetActive(true);
+        rollDiceButton.SetActive(true);
     }
 
     public void EndTurn()
     {
+        gameObject.SetActive(false);
         player.EndTurn();
     }
 
     public void RollDice()
     {
+        rollDiceButton.SetActive(false);
         int diceRoll = UnityEngine.Random.Range(1, 7) + UnityEngine.Random.Range(1, 7);
 
         rollDice.text = diceRoll + "";

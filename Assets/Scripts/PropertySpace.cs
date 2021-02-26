@@ -9,10 +9,19 @@ public class PropertySpace : Space
     public PropertyUI ui;
     public int price;
     public Player owner;
+    public int rent;
 
     public override void LandOn(Player player)
     {
-        ui.ShowInterface(player);
+        if(!owner)
+        {
+            ui.ShowInterface(player);
+        }
+        else
+        {
+            player.fish -= rent;
+            owner.fish += rent;
+        }
     }
 
     private void Start()
