@@ -38,17 +38,36 @@ public class Board : MonoBehaviour
 
     IEnumerator NextTurn()
     {
+        bool winner = false;
         bool nextTurn = true;
-        while(true)
+        while (!winner)
         {
-            if(nextTurn)
+            if (nextTurn)
             {
                 nextTurn = false;
-                currentPlayer.StartTurn(() => { currentPlayerIndex = (currentPlayerIndex + 1) % players.Length; nextTurn = true; currentPlayer = players[currentPlayerIndex]; });
+                currentPlayer.StartTurn(() => {
+                    currentPlayerIndex = (currentPlayerIndex + 1) % players.Length;
+                    nextTurn = true;
+                    currentPlayer = players[currentPlayerIndex];
+                });
             }
 
             yield return new WaitForSeconds(0.1f);
+
+            for (int i = 0; i < players.Length; i++)
+            {
+                if (players[i].fish < 0)
+                {
+                    Debug.Log("Player " + (i+1) + " has 'won' he no longer has to play this shit game");
+                    winner = true;
+                }
+            }
         }
-        
+        EndGame();
+    }
+
+    public void EndGame()
+    {
+
     }
 }

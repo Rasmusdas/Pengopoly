@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using UnityEngine;
 
 public class PropertySpace : Space
 {
@@ -27,5 +28,11 @@ public class PropertySpace : Space
     private void Start()
     {
         position = transform.position;
+    }
+
+    public void SetOwner(Player newOwner)
+    {
+        owner = newOwner;
+        GetComponent<MeshRenderer>().material.color = newOwner.playerColor;
     }
 }

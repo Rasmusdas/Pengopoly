@@ -8,6 +8,7 @@ using UnityEngine;
 
 public class HumanPlayer : Player
 {
+
     public PlayerInterface intFace;
     public Board board;
     
@@ -15,8 +16,16 @@ public class HumanPlayer : Player
     Action endTurn;
     public override void StartTurn(Action endTurn)
     {
-        ShowInterface();
         this.endTurn = endTurn;
+        if (jailTurns > 0)
+        {
+            jailTurns--;
+            EndTurn();
+        }
+        else
+        {
+            ShowInterface();
+        }
     }
 
     public void ShowInterface()

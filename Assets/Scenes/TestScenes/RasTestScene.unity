@@ -751,13 +751,28 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1218767326455319848, guid: 42a1ca583aca5ad42af32e4f40c55ed5,
         type: 3}
+      propertyPath: m_LocalScale.x
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218767326455319848, guid: 42a1ca583aca5ad42af32e4f40c55ed5,
+        type: 3}
+      propertyPath: m_LocalScale.y
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218767326455319848, guid: 42a1ca583aca5ad42af32e4f40c55ed5,
+        type: 3}
+      propertyPath: m_LocalScale.z
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1218767326455319848, guid: 42a1ca583aca5ad42af32e4f40c55ed5,
+        type: 3}
       propertyPath: m_LocalPosition.x
       value: 0.0176
       objectReference: {fileID: 0}
     - target: {fileID: 1218767326455319848, guid: 42a1ca583aca5ad42af32e4f40c55ed5,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0
+      value: 2.6
       objectReference: {fileID: 0}
     - target: {fileID: 1218767326455319848, guid: 42a1ca583aca5ad42af32e4f40c55ed5,
         type: 3}
@@ -965,7 +980,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2087b936e20509c4280fc16297110b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerColor: {r: 1, g: 0, b: 0, a: 0}
   fish: 100
+  jailTurns: 0
   intFace: {fileID: 198908675}
   board: {fileID: 334889508}
 --- !u!1 &1561934958
@@ -1115,7 +1132,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2087b936e20509c4280fc16297110b04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerColor: {r: 0, g: 1, b: 0.06572652, a: 0}
   fish: 100
+  jailTurns: 0
   intFace: {fileID: 844306598}
   board: {fileID: 334889508}
 --- !u!65 &1630191087

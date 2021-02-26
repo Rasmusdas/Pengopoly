@@ -39,7 +39,7 @@ public class PropertyUI : MonoBehaviour
     public void BuyProperty()
     {
         currentPlayer.fish -= prop.price;
-        prop.owner = currentPlayer;
+        prop.SetOwner(currentPlayer);
         HideInterface();
     }
 
