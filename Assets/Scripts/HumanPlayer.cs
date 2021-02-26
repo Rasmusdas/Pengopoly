@@ -33,7 +33,7 @@ public class HumanPlayer : Player
             transform.LookAt(board[i].position + Vector3.up);
             while (t <= 2.001)
             {
-                transform.position = new Vector3(Mathf.Lerp(startPosition.x, board[i].position.x, (t + 2) / 4.0f), 3 - (t * t)*1/2, Mathf.Lerp(startPosition.z, board[i].position.z, (t + 2) / 4.0f));
+                transform.position = new Vector3(Mathf.Lerp(startPosition.x, board[i].position.x, (t + 2) / 4.0f), 3 - (t * t)/2, Mathf.Lerp(startPosition.z, board[i].position.z, (t + 2) / 4.0f));
                 
                 yield return new WaitForSeconds(0.009f);
                 t += 2f/10f;

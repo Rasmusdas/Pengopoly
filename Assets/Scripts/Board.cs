@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class Board : MonoBehaviour
 {
+    public GameObject spaces;
     public Space[] board;
     public Player currentPlayer;
     public Player[] players;
@@ -25,6 +26,11 @@ public class Board : MonoBehaviour
 
     void Start()
     {
+        board = new Space[spaces.transform.childCount];
+        for (int i = 0; i < spaces.transform.childCount; i++)
+        {
+            board[i] = spaces.transform.GetChild(i).GetComponent<Space>();
+        }
         currentPlayer.StartTurn(() => { Debug.Log("TURN ENDED"); });
     }
 
