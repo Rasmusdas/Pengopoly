@@ -10,4 +10,11 @@ public abstract class Player : MonoBehaviour
     public int fish;
     public int jailTurns;
     public abstract void StartTurn(Action endTurn);
+    public Board board;
+
+
+    private void Start()
+    {
+        board = GameObject.FindGameObjectWithTag("Board").GetComponent<Board>();
+    }
 }

@@ -14,14 +14,15 @@ public class PropertySpace : Space
     public IglooInfo[] igloos;
 
 
-    public override void LandOn(Player player)
+    public override void LandOn(Player player,Action endTurn)
     {
         if(!owner || player == owner)
         {
-            ui.ShowInterface(player);
+            ui.ShowInterface(player, endTurn);
         }
         else
         {
+            endTurn();
             player.fish -= rent;
             owner.fish += rent;
         }

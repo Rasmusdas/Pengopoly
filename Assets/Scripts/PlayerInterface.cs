@@ -12,6 +12,7 @@ public class PlayerInterface : MonoBehaviour
 
     public Text rollDice;
     public GameObject rollDiceButton;
+    public GameObject endTurnButton;
 
     public void ShowInterface()
     {
@@ -21,6 +22,7 @@ public class PlayerInterface : MonoBehaviour
 
     public void EndTurn()
     {
+        endTurnButton.SetActive(false);
         gameObject.SetActive(false);
         player.EndTurn();
     }

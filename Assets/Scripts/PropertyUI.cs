@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -13,12 +14,14 @@ public class PropertyUI : MonoBehaviour
     public GameObject[] iglooButtons;
 
     public PropertySpace prop;
+    public Action endTurn;
 
     Player currentPlayer;
-    public void ShowInterface(Player currentPlayer)
+    public void ShowInterface(Player currentPlayer, Action endTurn)
     {
         gameObject.SetActive(true);
         this.currentPlayer = currentPlayer;
+        this.endTurn = endTurn;
 
         if(prop.owner)
         {
@@ -61,6 +64,7 @@ public class PropertyUI : MonoBehaviour
 
     public void HideInterface()
     {
+        endTurn();
         gameObject.SetActive(false);
     }
 

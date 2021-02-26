@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 1218767326455319847}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.44, y: 0, z: 0}
-  m_LocalScale: {x: 0.0032, y: 4, z: 0.0032}
+  m_LocalScale: {x: 1, y: 0.10000001, z: 1}
   m_Children:
   - {fileID: 2409863785149867128}
   m_Father: {fileID: 0}
@@ -61,7 +61,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: -1580535799172915004, guid: 0bd59fe0c1b62034cbc231ac7a9aaf77, type: 3}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -111,6 +111,8 @@ MonoBehaviour:
   ui: {fileID: 7618422267988161468}
   price: 69
   owner: {fileID: 0}
+  rent: 0
+  igloos: []
 --- !u!1001 &2124287365051642437
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -227,6 +229,26 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 4326677498369424207, guid: 1a9b735ef7c011d4a9491f0bc57d8628,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7618422267988161468}
+    - target: {fileID: 4326677498369424207, guid: 1a9b735ef7c011d4a9491f0bc57d8628,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: BuyProperty
+      objectReference: {fileID: 0}
+    - target: {fileID: 4326677498711394127, guid: 1a9b735ef7c011d4a9491f0bc57d8628,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 7618422267988161468}
+    - target: {fileID: 4326677498711394127, guid: 1a9b735ef7c011d4a9491f0bc57d8628,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: HideInterface
       objectReference: {fileID: 0}
     - target: {fileID: 8412986521239208441, guid: 1a9b735ef7c011d4a9491f0bc57d8628,
         type: 3}

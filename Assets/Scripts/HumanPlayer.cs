@@ -10,7 +10,7 @@ public class HumanPlayer : Player
 {
 
     public PlayerInterface intFace;
-    public Board board;
+    
     
     int position = 0;
     Action endTurn;
@@ -45,6 +45,10 @@ public class HumanPlayer : Player
         for (int i = 0; i < num; i++)
         {
             int index = (position + i + 1)%board.Size;
+            if(index == 0)
+            {
+                fish += board.startBonus;
+            }
             Vector3 startPosition = transform.position;
             float t = -2;
             transform.LookAt(board[index].position);
@@ -60,6 +64,6 @@ public class HumanPlayer : Player
 
         position = (position + num) % board.Size;
 
-        board[position].LandOn(this);
+        board[position].LandOn(this, ()=> { intFace.endTurnButton.SetActive(true); });
     }
 }

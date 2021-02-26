@@ -9,6 +9,7 @@ public class Board : MonoBehaviour
     public Player currentPlayer;
     public Player[] players;
     public int currentPlayerIndex = 0;
+    public int startBonus = 1000;
 
     public int Size { 
         get
