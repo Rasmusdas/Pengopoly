@@ -9,7 +9,8 @@ public class PropertyUI : MonoBehaviour
 
     public GameObject notOwnedButtons;
 
-    public GameObject ownedButtons;
+    public GameObject upgradeButtons;
+    public GameObject[] iglooButtons;
 
     public PropertySpace prop;
 
@@ -22,12 +23,27 @@ public class PropertyUI : MonoBehaviour
         if(prop.owner)
         {
             notOwnedButtons.SetActive(false);
-            ownedButtons.SetActive(true);
+
+            if(prop.owner == currentPlayer)
+            {
+                upgradeButtons.SetActive(true);
+
+                for (int i = 0; i < iglooButtons.Length; i++)
+                {
+                    if(prop.igloos[i].price <= currentPlayer.fish && !prop.igloos[i].bought)
+                    {
+                        iglooButtons[i].SetActive(true);
+                    }
+                    else
+                    {
+                        iglooButtons[i].SetActive(false);
+                    }
+                }
+            }
         }
         else
         {
             notOwnedButtons.SetActive(true);
-            ownedButtons.SetActive(false);
         }
 
         if(currentPlayer.fish < prop.price )
@@ -46,5 +62,14 @@ public class PropertyUI : MonoBehaviour
     public void HideInterface()
     {
         gameObject.SetActive(false);
+    }
+
+    public void BuildIgloo(string num)
+    {
+        int index = int.Parse(num);
+
+        currentPlayer.fish -= prop.igloos[index].price;
+        prop.igloos[index].bought = true;
+        prop.price *= prop.igloos[index].multiplier;
     }
 }

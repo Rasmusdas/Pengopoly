@@ -11,10 +11,12 @@ public class PropertySpace : Space
     public int price;
     public Player owner;
     public int rent;
+    public IglooInfo[] igloos;
+
 
     public override void LandOn(Player player)
     {
-        if(!owner)
+        if(!owner || player == owner)
         {
             ui.ShowInterface(player);
         }
