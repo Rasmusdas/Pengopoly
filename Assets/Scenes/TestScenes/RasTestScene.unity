@@ -367,6 +367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 09d6a00a28471434f8904269eb3a56a3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  spaces: {fileID: 602091784}
   board:
   - {fileID: 1383594201}
   - {fileID: 756269730}

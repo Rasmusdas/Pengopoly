@@ -15,7 +15,7 @@ public class HumanPlayer : Player
 
     public override void StartTurn(Action endTurn)
     {
-        StartCoroutine(MoveToSpace(board.Size));
+        StartCoroutine(MoveToSpace(1000));
     }
 
     public void ShowInterface()
@@ -23,22 +23,27 @@ public class HumanPlayer : Player
         intFace.ShowInterface();
     }
 
-    public IEnumerator MoveToSpace(int index)
+    public IEnumerator MoveToSpace(int num)
     {
 
-        for (int i = position+1; i < index; i++)
+        for (int i = 0; i < num; i++)
         {
+            int index = (position + i + 1)%board.Size;
             Vector3 startPosition = transform.position;
             float t = -2;
-            transform.LookAt(board[i].position + Vector3.up);
+            transform.LookAt(board[index].position);
+            transform.Rotate(0, 180, 0);
             while (t <= 2.001)
             {
-                transform.position = new Vector3(Mathf.Lerp(startPosition.x, board[i].position.x, (t + 2) / 4.0f), 3 - (t * t)/2, Mathf.Lerp(startPosition.z, board[i].position.z, (t + 2) / 4.0f));
+                transform.position = new Vector3(Mathf.Lerp(startPosition.x, board[index].position.x, (t + 2) / 4.0f), board[index].position.y+1 - (t * t)/4, Mathf.Lerp(startPosition.z, board[index].position.z, (t + 2) / 4.0f));
                 
                 yield return new WaitForSeconds(0.009f);
                 t += 2f/10f;
             }
         }
 
+        position = (position + num) % board.Size;
+
+        board[position].LandOn(this);
     }
 }
