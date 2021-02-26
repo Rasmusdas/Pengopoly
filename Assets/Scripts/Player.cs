@@ -6,5 +6,6 @@ using UnityEngine;
 
 public abstract class Player : MonoBehaviour
 {
+    public int fish;
     public abstract void StartTurn(Action endTurn);
 }

@@ -10,18 +10,24 @@ public class HumanPlayer : Player
 {
     public PlayerInterface intFace;
     public Board board;
-    int fish;
+    
     int position = 0;
-
+    Action endTurn;
     public override void StartTurn(Action endTurn)
     {
-        StartCoroutine(MoveToSpace(1000));
+        this.endTurn = endTurn;
     }
 
     public void ShowInterface()
     {
         intFace.ShowInterface();
     }
+
+    public void EndTurn()
+    {
+        endTurn.Invoke();
+    }
+
 
     public IEnumerator MoveToSpace(int num)
     {

@@ -6,9 +6,13 @@ using System.Threading.Tasks;
 
 public class PropertySpace : Space
 {
+    public PropertyUI ui;
+    public int price;
+    public Player owner;
+
     public override void LandOn(Player player)
     {
-        throw new NotImplementedException();
+        ui.ShowInterface(player);
     }
 
     private void Start()
